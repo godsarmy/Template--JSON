@@ -32,4 +32,11 @@ sub lookup_with_type {
     }
     return ($ref, [], $TEMPLATE_FORMATTER);
 }
+
+=pod
+
+Each template owns a template regiestry
+
+=cut
+
 1;
