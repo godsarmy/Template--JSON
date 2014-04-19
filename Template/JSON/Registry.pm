@@ -9,7 +9,7 @@ sub new {
     my $class = shift;
     my ($owner) = @_;
     my $self = $class->SUPER::new();
-    $self->{'owner'} = $owner;
+    $self->{owner} = $owner;
 
     return $self;
 }
@@ -25,7 +25,7 @@ sub lookup_with_type {
         my $name = substr($user_str, length($prefix))
 
         if ($name eq 'SELF') {
-            $ref = Template::JSON::TemplateRef($name) 
+            $ref = Template::JSON::TemplateRef(undef, $self->{owner}) 
         } else {
             $ref = Template::JSON::TemplateRef($name) 
         }
