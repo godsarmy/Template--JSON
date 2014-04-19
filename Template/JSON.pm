@@ -5,7 +5,7 @@ use warnings;
 
 sub new {
     my $class = shift;
-    my ($template_str) = @_;
+    my ($template_str, $compile_options) = @_;
     my $self = {
         group => undef,
     };
