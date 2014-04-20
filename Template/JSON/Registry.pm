@@ -3,6 +3,7 @@ package Template::JSON::Registry;
 use strict;
 use warnings;
 
+use Template::JSON::Constant qw($TEMPLATE_FORMATTER);
 use base qw(Template::JSON::FunctionRegistry);
 
 sub new {
@@ -22,7 +23,7 @@ sub lookup_with_type {
     my $ref = undef;
 
     if ($user_str =~ /^$prefix/) {
-        my $name = substr($user_str, length($prefix))
+        my $name = substr($user_str, length($prefix));
 
         if ($name eq 'SELF') {
             $ref = Template::JSON::TemplateRef(undef, $self->{owner}) 

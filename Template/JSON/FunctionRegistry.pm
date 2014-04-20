@@ -3,7 +3,7 @@ package Template::JSON::FunctionRegistry;
 use strict;
 use warnings;
 
-use Template::JSON::Constant qw($SIMPLE_FUNC, $ENHANCED_FUNC);
+use Template::JSON::Constant qw($SIMPLE_FUNC $ENHANCED_FUNC);
 
 sub new {
     my $class = shift;

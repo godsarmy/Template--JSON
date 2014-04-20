@@ -1,7 +1,13 @@
 package Template::JSON::Constant;
 
+use Exporter;
+our (@ISA, @EXPORT_OK, $SIMPLE_FUNC, $ENHANCED_FUNC);
+
 @ISA = qw(Exporter);
-@EXPORT_OK = qw ($SIMPLE_FUNC $ENHANCED_FUNC);
+@EXPORT_OK = qw ($SIMPLE_FUNC $ENHANCED_FUNC $TEMPLATE_FORMATTER);
 
 $SIMPLE_FUNC = 0;
 $ENHANCED_FUNC = 1;
+$TEMPLATE_FORMATTER = 2;
+
+1;
