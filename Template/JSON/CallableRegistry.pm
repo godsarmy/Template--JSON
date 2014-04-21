@@ -10,7 +10,7 @@ sub new {
     my ($func) = @_;
     my $self = $class->SUPER::new();
 
-    $self->{func} = $func
+    $self->{func} = $func;
 
     return $self;
 }
