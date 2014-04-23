@@ -6,6 +6,8 @@ use warnings;
 use Template::JSON::Registry;
 use Template::JSON::ProgramBuilder;
 
+my $_toke_re_cache = {};
+
 sub new {
     my $class = shift;
     my ($template_str, $more_formatters, $more_predicates,
@@ -71,6 +73,37 @@ sub _compile_template {
     }
 
     my ($meta_left, $meta_right) = _split_meta($meta);
+
+    if ($format_char ne '|' && $format_char ne ':') {
+        die "Only format characters : and | are accepted (got $format_char)"
+    }
+
+    my $balance_counter = 0;
+    my $comment_counter = 0;
+
+    my $has_defined = 0;
+
+    #foreach 
 }
 
+sub _tokenize {
+    my ($template_str, $meta_left, $meta_right, $whitespace) = @_;
+
+    my $trimlen = length($meta_left);
+    my $token_re = _make_token_regex($meta_left, $meta_right);
+
+    my $do_strip = ($whitespace eq 'strip-line')  # Do this outside loop
+    my $do_strip_part = 0;
+
+}
+
+sub _make_token_regex {
+    my ($meta_left, $meta_right) = @_;
+
+    my $key = $meta_left.'__'.$meta_right;
+
+    $_toke_re_cache{$key} = '(' . $meta_left . '\S.*?' . $meta_right . ')';
+
+    return $_toke_re_cache{$key};
+}
 1;
